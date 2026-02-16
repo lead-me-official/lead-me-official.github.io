@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lead Me - Where Personal Development Meets AI Fluency. Transform your career with personal branding, SMART goals, atomic habits, and AI mastery.">
+    <title>Lead Me | Personal Growth & AI Fluency for Ambitious Professionals</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4e4c1;
+            --gold-dark: #c49a2d;
+            --black: #0a0a0a;
+            --gray-dark: #1a1a1a;
+            --gray-mid: #2d2d2d;
+            --gray-light: #999;
+            --white: #ffffff;
+            --accent: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Grain texture overlay */
+        .grain::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 40px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 40px;
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--black);
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .cta-button {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--gray-light);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-subtitle .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn-primary {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-secondary {
+            padding: 18px 40px;
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Floating elements */
+        .float-element {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .float-element:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .float-element:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -20px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.9); }
+            75% { transform: translate(20px, 20px) scale(1.05); }
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 120px 40px;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-description {
+            font-size: 20px;
+            color: var(--gray-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .story-card {
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .story-card:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateX(10px);
+        }
+
+        .story-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .story-card p {
+            font-size: 16px;
+            color: var(--gray-light);
+            line-height: 1.8;
+        }
+
+        .story-visual {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, var(--gray-mid) 0%, var(--gray-dark) 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .story-visual::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+
+        .story-visual-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .story-visual-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .story-visual-text p {
+            font-size: 18px;
+            color: var(--gray-light);
+            line-height: 1.6;
+        }
+
+        /* Pillars Section */
+        .pillars-section {
+            padding: 120px 40px;
+            background: linear-gradient(180deg, transparent 0%, rgba(212, 175, 55, 0.02) 50%, transparent 100%);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .pillar-card {
+            padding: 50px 35px;
+            background: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .pillar-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pillar-card:hover {
+            background: rgba(26, 26, 26, 0.8);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .pillar-icon {
+            font-size: 48px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .pillar-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .pillar-card p {
+            font-size: 15px;
+            color: var(--gray-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .pillar-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .pillar-features li {
+            font-size: 14px;
+            color: var(--gray-light);
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .pillar-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 120px 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 60px 50px;
+            background: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-mid) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: scale(1.02);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 30px;
+        }
+
+        .service-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .service-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .service-description {
+            font-size: 16px;
+            color: var(--gray-light);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .service-features li {
+            font-size: 15px;
+            color: var(--white);
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .service-cta {
+            display: inline-block;
+            padding: 16px 36px;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .service-cta:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Templates Section */
+        .templates-section {
+            padding: 120px 40px;
+            background: linear-gradient(180deg, transparent 0%, rgba(212, 175, 55, 0.03) 100%);
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .template-card {
+            padding: 40px 35px;
+            background: var(--gray-dark);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .template-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .template-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .template-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .template-card p {
+            font-size: 15px;
+            color: var(--gray-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .template-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .template-cta {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .template-cta:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 120px 40px;
+            position: relative;
+        }
+
+        .newsletter-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 80px 60px;
+            background: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-mid) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-container h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .newsletter-container p {
+            font-size: 18px;
+            color: var(--gray-light);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 18px 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: var(--white);
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--gold);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--gray-light);
+        }
+
+        .newsletter-submit {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .newsletter-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .newsletter-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 40px 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            font-size: 15px;
+            color: var(--gray-light);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--gray-light);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .story-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .story-section,
+            .pillars-section,
+            .services-section,
+            .templates-section,
+            .newsletter-section {
+                padding: 80px 20px;
+            }
+
+            .pillars-grid,
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="grain">
+    <div class="gradient-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">LM</div>
+                <span class="logo-text">LEAD ME</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#story">Story</a></li>
+                <li><a href="#pillars">What We Do</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#templates">Templates</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+            </ul>
+            <a href="#book" class="cta-button">Book Session</a>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">Where Personal Development Meets AI Fluency</span>
+            <h1>Your Identity Is<br>Your Competitive<br>Advantage</h1>
+            <p class="hero-subtitle">
+                In the AI era, <span class="highlight">your personal brand</span> is everything. 
+                Build unshakeable confidence, master essential habits, and stay ahead with AI — 
+                guided by a senior tech leader with 15+ years of experience.
+            </p>
+            <div class="hero-cta">
+                <a href="#book" class="btn-primary">Start Your Transformation</a>
+                <a href="#story" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section" id="story">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Our Story</span>
+                <h2 class="section-title">Why Lead Me Exists</h2>
+                <p class="section-description">
+                    In an era where AI can do almost anything, your personal brand 
+                    is your identity — it's what makes you irreplaceable.
+                </p>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-content fade-in">
+                    <div class="story-card">
+                        <h3>The Problem</h3>
+                        <p>
+                            I watched brilliant engineers struggle with imposter syndrome, 
+                            talented professionals go unnoticed, and ambitious people feel 
+                            overwhelmed by the pace of AI change. Hard work wasn't enough anymore.
+                        </p>
+                    </div>
+
+                    <div class="story-card">
+                        <h3>The Realization</h3>
+                        <p>
+                            After 15+ years as a senior engineer, leading teams, and speaking 
+                            at global conferences, I discovered the truth: success isn't about 
+                            being the smartest in the room. It's about mastering your identity, 
+                            your habits, and your ability to adapt.
+                        </p>
+                    </div>
+
+                    <div class="story-card">
+                        <h3>The Mission</h3>
+                        <p>
+                            Lead Me was created to help ambitious professionals build what 
+                            AI can't replicate: a powerful personal brand, unshakeable 
+                            confidence, atomic habits that compound, and the AI fluency to 
+                            stay ahead. Not theory. Real systems that work.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="story-visual fade-in">
+                    <div class="story-visual-text">
+                        <h2>"Your Personal Brand<br>Is Your Identity<br>In the AI Era"</h2>
+                        <p>
+                            When AI can code, write, and analyze —<br>
+                            your unique perspective becomes<br>
+                            your most valuable asset.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section class="pillars-section" id="pillars">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Four Pillars</span>
+                <h2 class="section-title">What We Help You Master</h2>
+                <p class="section-description">
+                    Four essential systems to transform your career and life
+                </p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card fade-in">
+                    <span class="pillar-icon">🎯</span>
+                    <h3>Personal Branding</h3>
+                    <p>
+                        Build a powerful professional identity that gets you noticed, 
+                        trusted, and remembered. Your brand is your competitive advantage.
+                    </p>
+                    <ul class="pillar-features">
+                        <li>LinkedIn optimization</li>
+                        <li>Thought leadership strategy</li>
+                        <li>Authentic positioning</li>
+                        <li>Content frameworks</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card fade-in">
+                    <span class="pillar-icon">🚀</span>
+                    <h3>SMART Goals</h3>
+                    <p>
+                        Turn ambition into achievement. Set meaningful goals, create 
+                        accountability systems, and accomplish what matters most.
+                    </p>
+                    <ul class="pillar-features">
+                        <li>90-day breakthrough planning</li>
+                        <li>OKR frameworks</li>
+                        <li>Progress tracking</li>
+                        <li>Quarterly reviews</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card fade-in">
+                    <span class="pillar-icon">🔄</span>
+                    <h3>Atomic Habits</h3>
+                    <p>
+                        Make success inevitable through systems. Design your environment, 
+                        stack habits, and create compound growth.
+                    </p>
+                    <ul class="pillar-features">
+                        <li>Habit stacking</li>
+                        <li>Environment design</li>
+                        <li>Identity transformation</li>
+                        <li>Sustainable routines</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card fade-in">
+                    <span class="pillar-icon">🤖</span>
+                    <h3>AI Fluency</h3>
+                    <p>
+                        Future-proof your career. Master essential AI tools, automate 
+                        workflows, and stay ahead of industry changes.
+                    </p>
+                    <ul class="pillar-features">
+                        <li>AI tool mastery</li>
+                        <li>Workflow automation</li>
+                        <li>Prompt engineering</li>
+                        <li>Weekly AI insights</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Services</span>
+                <h2 class="section-title">Work With Me</h2>
+                <p class="section-description">
+                    Choose the path that fits your goals
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-header">
+                        <div>
+                            <h3 class="service-title">1-on-1 Coaching</h3>
+                            <p class="service-description">
+                                Personalized guidance tailored to your unique challenges and goals. 
+                                Deep-dive sessions with a senior tech leader who's been there.
+                            </p>
+                        </div>
+                        <div class="service-price">£100<br><span style="font-size: 16px; color: var(--gray-light);">/hour</span></div>
+                    </div>
+                    <ul class="service-features">
+                        <li>Personal brand strategy & development</li>
+                        <li>Goal setting & achievement frameworks</li>
+                        <li>Habit formation & behavior change</li>
+                        <li>AI tools for your specific role</li>
+                        <li>Career strategy & growth planning</li>
+                        <li>Interview prep & salary negotiation</li>
+                    </ul>
+                    <a href="#book" class="service-cta">Book Your Session →</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-header">
+                        <div>
+                            <h3 class="service-title">Group Programs</h3>
+                            <p class="service-description">
+                                Accelerate growth with like-minded professionals. Cohort-based 
+                                programs with accountability, community, and proven frameworks.
+                            </p>
+                        </div>
+                        <div class="service-price">£250+</div>
+                    </div>
+                    <ul class="service-features">
+                        <li>4-8 week structured programs</li>
+                        <li>Weekly group coaching sessions</li>
+                        <li>Private community access</li>
+                        <li>All templates & resources included</li>
+                        <li>Peer accountability partners</li>
+                        <li>Live Q&A and hot seats</li>
+                    </ul>
+                    <a href="#book" class="service-cta">Join Waitlist →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section class="templates-section" id="templates">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Templates & Resources</span>
+                <h2 class="section-title">Instant Access Tools</h2>
+                <p class="section-description">
+                    Proven frameworks and templates to get started today
+                </p>
+            </div>
+
+            <div class="templates-grid">
+                <div class="template-card fade-in">
+                    <span class="template-badge">Most Popular</span>
+                    <h3>Personal Brand Blueprint</h3>
+                    <p>
+                        Complete framework to build your professional identity from scratch. 
+                        Includes brand archetype quiz, value proposition canvas, and 90-day launch plan.
+                    </p>
+                    <div class="template-price">£75</div>
+                    <a href="#" class="template-cta">Coming Soon</a>
+                </div>
+
+                <div class="template-card fade-in">
+                    <span class="template-badge">New</span>
+                    <h3>SMART Goals System</h3>
+                    <p>
+                        Turn ambition into achievement. Goal-setting workshop, OKR templates, 
+                        quarterly planning sheets, and progress tracking.
+                    </p>
+                    <div class="template-price">£50</div>
+                    <a href="#" class="template-cta">Coming Soon</a>
+                </div>
+
+                <div class="template-card fade-in">
+                    <span class="template-badge">Essential</span>
+                    <h3>Atomic Habits Kit</h3>
+                    <p>
+                        Build lasting habits that compound. Habit trackers, stacking worksheets, 
+                        environment design checklist, and identity shift exercises.
+                    </p>
+                    <div class="template-price">£45</div>
+                    <a href="#" class="template-cta">Coming Soon</a>
+                </div>
+
+                <div class="template-card fade-in">
+                    <span class="template-badge">AI Era</span>
+                    <h3>AI Tools Starter Guide</h3>
+                    <p>
+                        Master the 20 essential AI tools. Use cases, prompt engineering basics, 
+                        workflow automation, and ROI calculator.
+                    </p>
+                    <div class="template-price">£60</div>
+                    <a href="#" class="template-cta">Coming Soon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="newsletter-container">
+            <div class="newsletter-content fade-in">
+                <h2>Lead Me Weekly: AI + Growth</h2>
+                <p>
+                    5-minute insights every week. AI tools that save hours. 
+                    Personal growth strategies that work. Career tips that matter.
+                </p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input 
+                        type="email" 
+                        class="newsletter-input" 
+                        placeholder="Enter your email address" 
+                        required
+                    >
+                    <button type="submit" class="newsletter-submit">Subscribe Free</button>
+                </form>
+                <div class="newsletter-stats">
+                    <div class="stat">
+                        <span class="stat-number">2,000+</span>
+                        <span class="stat-label">Subscribers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5 min</span>
+                        <span class="stat-label">Read Time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Every Week</span>
+                        <span class="stat-label">Consistency</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">LEAD ME</div>
+                    <p>
+                        Where Personal Development Meets AI Fluency. 
+                        Helping ambitious professionals build their brand, 
+                        master their habits, and stay ahead in the AI era.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">✉</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">1-on-1 Coaching</a></li>
+                        <li><a href="#services">Group Programs</a></li>
+                        <li><a href="#templates">Templates</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#pillars">What We Do</a></li>
+                        <li><a href="#book">Book Session</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hello.leadme@gmail.com">hello.leadme@gmail.com</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Lead Me. All rights reserved.</p>
+                <p>Built with purpose. Designed for impact.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Newsletter form
+        document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            alert(`Thank you for subscribing! We'll send insights to ${email} every week.`);
+            e.target.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
