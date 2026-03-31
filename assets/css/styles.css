@@ -721,6 +721,95 @@ nav.scrolled {
     color: var(--black);
 }
 
+/* Path to the Top */
+.path-section {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid rgba(212,175,55,0.15);
+}
+
+.path-steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.path-step {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.path-step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.path-step-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.path-step-content p {
+    font-size: 0.95rem;
+    color: var(--gray-light);
+    line-height: 1.6;
+}
+
+.path-step-btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 22px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.path-step-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+.path-connector {
+    flex: 0 0 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), rgba(212,175,55,0.3));
+    margin-top: 36px;
+    align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+    .path-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    .path-connector {
+        width: 2px;
+        height: 32px;
+        flex: 0 0 32px;
+        background: linear-gradient(180deg, var(--gold), rgba(212,175,55,0.3));
+        margin: 0;
+    }
+    .path-step {
+        width: 100%;
+    }
+}
+
 /* Templates Section */
 .templates-section {
     padding: 120px 40px;
